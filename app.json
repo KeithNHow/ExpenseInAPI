@@ -1,0 +1,30 @@
+{
+  "id": "0a556cd2-4e7f-4df4-b118-9ea9da318a0f",
+  "name": "Expense In Custom API",
+  "publisher": "Expense In",
+  "version": "2.0.0.0",
+  "brief": "Export of Purchase Data",
+  "description": "Export of Purchase Data",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./Logo/KNH.jpg",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "20.0.0.0",
+  "idRanges": [
+    {
+      "from": 50300,
+      "to": 50309
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://ExpenseInAPI.com/help/",
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "9.0"
+}
