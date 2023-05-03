@@ -1,7 +1,7 @@
 /// <summary>
-/// Page "EXIGenJournalBatchesAPI" (ID 50304).
+/// Page "EXI_GenJournalBatchesAPI" (ID 50304).
 /// </summary>
-page 50304 EXIGenJournalBatchesAPI
+page 50304 "EXI_GenJournalBatchesAPI"
 {
     APIGroup = 'expenseIn';
     APIPublisher = 'rsmuk';
@@ -27,10 +27,10 @@ page 50304 EXIGenJournalBatchesAPI
                 {
                     Caption = 'Allow VAT Difference';
                 }
-                field(backgroundErrorCheck; Rec."Background Error Check")
-                {
-                    Caption = 'Background Error Check';
-                }
+                //field(backgroundErrorCheck; Rec."Background Error Check")
+                //{
+                //    Caption = 'Background Error Check';
+                //}
                 field(balAccountNo; Rec."Bal. Account No.")
                 {
                     Caption = 'Bal. Account No.';

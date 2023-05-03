@@ -1,20 +1,20 @@
 /// <summary>
-/// Unknown "EXIExpenseInAPI" (ID 50300).
+/// Unknown "EXI_ExpenseInAPI" (ID 50300).
 /// </summary>
-permissionset 50300 EXIExpenseInAPI
+permissionset 50300 EXI_ExpenseInAPI
 {
     Assignable = true;
     Caption = 'Expense In API', MaxLength = 30;
     Permissions =
-        table "EXIGenJournalLineBuffer" = X,
-        tabledata "EXIGenJournalLineBuffer" = RMID,
-        codeunit "EXIExpenseInInstallMgt" = X,
-        codeunit "EXIExpenseInMgt" = X,
-        page EXIPurchaseJournalAPI = X,
-        page EXIVATBusinessPostingGroupAPI = X,
-        page EXIGeneralLedgerSetupAPI = X,
-        page EXIGenProductPostingGroupAPI = X,
-        page EXIGenJournalBatchesAPI = X,
-        page EXIGenBusPostingGroupAPI = X,
-        page EXIVATProductPostingGroupsAPI = X;
+        table "EXI_GenJournalLineBuffer" = X,
+        tabledata "EXI_GenJournalLineBuffer" = RMID,
+        codeunit "EXI_ExpenseInInstallMgt" = X,
+        codeunit "EXI_ExpenseInMgt" = X,
+        page EXI_PurchaseJournalAPI = X,
+        page EXI_VATBusinessPostingGroupAPI = X,
+        page EXI_GeneralLedgerSetupAPI = X,
+        page EXI_GenProductPostingGroupAPI = X,
+        page EXI_GenJournalBatchesAPI = X,
+        page EXI_GenBusPostingGroupAPI = X,
+        page EXI_VATProductPostingGroupsAPI = X;
 }

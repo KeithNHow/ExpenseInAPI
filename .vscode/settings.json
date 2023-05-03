@@ -24,7 +24,7 @@
         "generateReportLayout": true
     },
 
-    "CRS.ObjectNamePrefix": "EXI",
+    "CRS.ObjectNamePrefix": "EXI_",
     "CRS.DisableDefaultAlSnippets": false,
     "CRS.OnSaveAlFileAction": "Rename",
     "CRS.FileNamePattern": "<ObjectName>.<ObjectTypeShortPascalCase>.al",

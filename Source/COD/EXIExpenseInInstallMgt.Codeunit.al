@@ -1,9 +1,9 @@
 /// <summary>
-/// Codeunit "EXIExpenseInInstallMgt" (ID 50300).
+/// Codeunit "EXI_ExpenseInInstallMgt" (ID 50300).
 /// Operations outside of the ext code that need to be run when ext is installed.
 /// Install code is run only when an ext version is first inst or reinst by running the Install-NAVApp cmdlet or from the Extension Management page in the client.
 /// </summary>
-codeunit 50300 EXIExpenseInInstallMgt
+codeunit 50300 "EXI_ExpenseInInstallMgt"
 {
     Subtype = Install;
 

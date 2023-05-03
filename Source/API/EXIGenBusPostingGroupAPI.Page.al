@@ -1,7 +1,7 @@
 /// <summary>
-/// Page "EXIGenBusPostingGroupAPI" (ID 50305).
+/// Page "EXI_GenBusPostingGroupAPI" (ID 50305).
 /// </summary>
-page 50305 EXIGenBusPostingGroupAPI
+page 50305 "EXI_GenBusPostingGroupAPI"
 {
     APIGroup = 'expenseIn';
     APIPublisher = 'rsmuk';

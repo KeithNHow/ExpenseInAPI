@@ -1,7 +1,7 @@
 /// <summary>
-/// Page "EXIVATProductPostingGroupsAPI" (ID 50306).
+/// Page "EXI_VATProductPostingGroupsAPI" (ID 50306).
 /// </summary>
-page 50306 EXIVATProductPostingGroupsAPI
+page 50306 "EXI_VATProductPostingGroupsAPI"
 {
     APIGroup = 'expenseIn';
     APIPublisher = 'rsmuk';

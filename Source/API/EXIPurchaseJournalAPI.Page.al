@@ -1,10 +1,10 @@
 /// <summary>
-/// Page "EXIPurchaseJournalAPI" (ID 50300).
+/// Page "EXI_PurchaseJournalAPI" (ID 50300).
 /// #133 KNH 251022 - Amend code for creating Dim Set Entries
 /// </summary>
-page 50300 EXIPurchaseJournalAPI
+page 50300 "EXI_PurchaseJournalAPI"
 {
-    SourceTable = "EXIGenJournalLineBuffer";
+    SourceTable = "EXI_GenJournalLineBuffer";
     APIVersion = 'v2.0';
     EntityCaption = 'Purchase Journal';
     EntitySetCaption = 'Purchase Journals';
