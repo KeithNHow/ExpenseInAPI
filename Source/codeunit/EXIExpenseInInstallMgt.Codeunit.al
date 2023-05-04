@@ -18,14 +18,14 @@ codeunit 50300 "EXI_ExpenseInInstallMgt"
     /// </summary>
     local procedure CreateJournalTemplate()
     begin
-        if not GeneralJournalTemplate.Get('PURCHASES') then begin
-            GeneralJournalTemplate.Init();
-            GeneralJournalTemplate.Type := GeneralJournalTemplate.Type::Purchases;
-            GeneralJournalTemplate.Name := 'PURCHASES';
-            GeneralJournalTemplate.Description := 'Purchases journal';
-            GeneralJournalTemplate."Source Code" := 'PURCHJNL';
-            GeneralJournalTemplate."Page ID" := Page::"Purchase Journal";
-            GeneralJournalTemplate.Insert();
+        if not GenJournalTemplate.Get('PURCHASES') then begin
+            GenJournalTemplate.Init();
+            GenJournalTemplate.Type := GenJournalTemplate.Type::Purchases;
+            GenJournalTemplate.Name := 'PURCHASES';
+            GenJournalTemplate.Description := 'Purchases journal';
+            GenJournalTemplate."Source Code" := 'PURCHJNL';
+            GenJournalTemplate."Page ID" := Page::"Purchase Journal";
+            GenJournalTemplate.Insert();
         end;
     end;
 
@@ -37,22 +37,22 @@ codeunit 50300 "EXI_ExpenseInInstallMgt"
     var
         GenJournalBatch: Record "Gen. Journal Batch";
     begin
-        GeneralJournalTemplate.Get('PURCHASES');
-        if not GenJournalBatch.Get(GeneralJournalTemplate.Name, 'EXPENSEIN') then begin
+        GenJournalTemplate.Get('PURCHASES');
+        if not GenJournalBatch.Get(GenJournalTemplate.Name, 'EXPENSEIN') then begin
             GenJournalBatch.Init();
-            GenJournalBatch."Journal Template Name" := GeneralJournalTemplate.Name;
+            GenJournalBatch."Journal Template Name" := GenJournalTemplate.Name;
             GenJournalBatch.Name := 'EXPENSEIN';
             GenJournalBatch.Description := 'ExpenseIn Integration';
-            GenJournalBatch."Bal. Account Type" := GeneralJournalTemplate."Bal. Account Type";
-            GenJournalBatch."Bal. Account No." := GeneralJournalTemplate."Bal. Account No.";
-            GenJournalBatch."No. Series" := GeneralJournalTemplate."No. Series";
-            GenJournalBatch."Posting No. Series" := GeneralJournalTemplate."Posting No. Series";
-            GenJournalBatch."Copy VAT Setup to Jnl. Lines" := GeneralJournalTemplate."Copy VAT Setup to Jnl. Lines";
+            GenJournalBatch."Bal. Account Type" := GenJournalTemplate."Bal. Account Type";
+            GenJournalBatch."Bal. Account No." := GenJournalTemplate."Bal. Account No.";
+            GenJournalBatch."No. Series" := GenJournalTemplate."No. Series";
+            GenJournalBatch."Posting No. Series" := GenJournalTemplate."Posting No. Series";
+            GenJournalBatch."Copy VAT Setup to Jnl. Lines" := GenJournalTemplate."Copy VAT Setup to Jnl. Lines";
             GenJournalBatch."Allow VAT Difference" := true;
             GenJournalBatch.Insert(true);
         end;
     end;
 
     var
-        GeneralJournalTemplate: Record "Gen. Journal Template";
+        GenJournalTemplate: Record "Gen. Journal Template";
 }

@@ -1103,6 +1103,4 @@ table 50300 "EXI_GenJournalLineBuffer"
             Rec.SystemId := GenJournalLine.SystemId;
         end;
     end;
-
 }
-
