@@ -10,10 +10,10 @@ codeunit 50301 "EXI_ExpenseInMgt"
     procedure post()
     var
         GenJournalBatch: Record "Gen. Journal Batch";
-        ActionContext: WebServiceActionContext;
+        WSActionContext: WebServiceActionContext;
     begin
         GetBatch(GenJournalBatch);
-        PostBatch(GenJournalBatch, ActionContext);
+        PostBatch(GenJournalBatch, WSActionContext);
         Message('Posted');
     end;
 
@@ -39,7 +39,7 @@ codeunit 50301 "EXI_ExpenseInMgt"
     /// <summary>
     /// Tries to Post GJL's on GJB and GJT 
     /// </summary>
-    local procedure PostBatch(var GenJournalBatch: Record "Gen. Journal Batch"; var ActionContext: WebServiceActionContext)
+    local procedure PostBatch(var GenJournalBatch: Record "Gen. Journal Batch"; var WSActionContext: WebServiceActionContext)
     var
         GenJournalLine: Record "Gen. Journal Line";
         ThereIsNothingToPostErr: Label 'There is nothing to post.';
@@ -50,9 +50,9 @@ codeunit 50301 "EXI_ExpenseInMgt"
             Error(ThereIsNothingToPostErr);
 
         if Codeunit.Run(Codeunit::"Gen. Jnl.-Post", GenJournalLine) then begin
-            ActionContext.SetObjectType(ObjectType::Codeunit);
-            ActionContext.AddEntityKey(GenJournalBatch.FieldNo(SystemId), GenJournalBatch.SystemId);
-            ActionContext.SetResultCode(WebServiceActionResultCode::Created);
+            WSActionContext.SetObjectType(ObjectType::Codeunit);
+            WSActionContext.AddEntityKey(GenJournalBatch.FieldNo(SystemId), GenJournalBatch.SystemId);
+            WSActionContext.SetResultCode(WebServiceActionResultCode::Created);
         end else
             Error(GetLastErrorText());
     end;

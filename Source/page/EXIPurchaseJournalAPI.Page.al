@@ -223,11 +223,11 @@ page 50300 "EXI_PurchaseJournalAPI"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
-        GLSetup: Record "General Ledger Setup";
+        GeneralLedgerSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
-        DimSetEntry: Record "Dimension Set Entry";
-        TempDimSetEntry: Record "Dimension Set Entry" temporary;
-        DimMgt: codeunit DimensionManagement;
+        DimensionSetEntry: Record "Dimension Set Entry";
+        TempDimensionSetEntry: Record "Dimension Set Entry" temporary;
+        DimensionManagement: codeunit DimensionManagement;
         i: Integer;
         DimSetID: Integer;
         DimValueCodeErr: Label 'Dimension Value Code %1 for Dimension Code %2 not found.', Comment = '%1 = DimValueCode, %2 = DimCode';
@@ -236,65 +236,65 @@ page 50300 "EXI_PurchaseJournalAPI"
             ShortcutDimCode[1] := Rec."Shortcut Dimension 1 Code";
         if Rec."Shortcut Dimension 2 Code" <> '' then
             ShortcutDimCode[2] := Rec."Shortcut Dimension 2 Code";
-        TempDimSetEntry.DeleteAll();
+        TempDimensionSetEntry.DeleteAll();
         for i := 1 to 8 do begin
-            GLSetup.Get();
+            GeneralLedgerSetup.Get();
             if ShortcutDimCode[i] <> '' then begin
                 DimensionValue.Reset();
                 case i of
                     1:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 1 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 1 Code");
                     2:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 2 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 2 Code");
                     3:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 3 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 3 Code");
                     4:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 4 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 4 Code");
                     5:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 5 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 5 Code");
                     6:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 6 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 6 Code");
                     7:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 7 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 7 Code");
                     8:
-                        DimensionValue.SetRange("Dimension Code", GLSetup."Shortcut Dimension 8 Code");
+                        DimensionValue.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
                 end;
                 DimensionValue.SetRange(Code, ShortcutDimCode[i]);
                 if DimensionValue.FindFirst() then begin
-                    TempDimSetEntry.Init();
+                    TempDimensionSetEntry.Init();
                     if i = 1 then begin
-                        if DimSetEntry.FindLast() then
-                            TempDimSetEntry."Dimension Set ID" := DimSetEntry."Dimension Set ID" + 1
+                        if DimensionSetEntry.FindLast() then
+                            TempDimensionSetEntry."Dimension Set ID" := DimensionSetEntry."Dimension Set ID" + 1
                         else
-                            TempDimSetEntry."Dimension Set ID" := 1;
-                        DimSetID := TempDimSetEntry."Dimension Set ID";
+                            TempDimensionSetEntry."Dimension Set ID" := 1;
+                        DimSetID := TempDimensionSetEntry."Dimension Set ID";
                     end else
-                        TempDimSetEntry."Dimension Set ID" := DimSetID;
+                        TempDimensionSetEntry."Dimension Set ID" := DimSetID;
                     case i of
                         1:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 1 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 1 Code");
                         2:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 2 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 2 Code");
                         3:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 3 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 3 Code");
                         4:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 4 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 4 Code");
                         5:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 5 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 5 Code");
                         6:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 6 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 6 Code");
                         7:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 7 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 7 Code");
                         8:
-                            TempDimSetEntry.Validate("Dimension Code", GLSetup."Shortcut Dimension 8 Code");
+                            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
                     end;
-                    TempDimSetEntry.Validate("Dimension Value Code", DimensionValue.Code);
-                    TempDimSetEntry.Insert();
+                    TempDimensionSetEntry.Validate("Dimension Value Code", DimensionValue.Code);
+                    TempDimensionSetEntry.Insert();
                 end else
                     Error(DimValueCodeErr, ShortcutDimCode[i], Rec."Shortcut Dimension 1 Code");
             end;
         end;
-        Rec."Dimension Set ID" := DimMgt.GetDimensionSetID(TempDimSetEntry);
+        Rec."Dimension Set ID" := DimensionManagement.GetDimensionSetID(TempDimensionSetEntry);
     end;
 
     var
