@@ -2,7 +2,7 @@
 /// Page "EXI_PurchaseJournalAPI" (ID 50300).
 /// #133 KNH 251022 - Amend code for creating Dim Set Entries
 /// </summary>
-page 50300 "EXI_PurchaseJournalAPI"
+page 50500 "EXI_PurchaseJournalAPI"
 {
     SourceTable = "EXI_GenJournalLineBuffer";
     APIVersion = 'v2.0';

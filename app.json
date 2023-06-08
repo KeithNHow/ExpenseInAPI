@@ -2,22 +2,22 @@
   "id": "0a556cd2-4e7f-4df4-b118-9ea9da318a0f",
   "name": "Expenses Integration",
   "publisher": "ExpenseIn",
-  "version": "2.0.0.2",
+  "version": "2.0.0.3",
   "brief": "Export of Purchase Data",
   "description": "Export of Purchase Data",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
   "url": "",
-  "logo": "./Logo/KNH.jpg",
+  "logo": "./logo/KNH.jpg",
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "20.0.0.0",
   "idRanges": [
     {
-      "from": 50300,
-      "to": 50309
+      "from": 50500,
+      "to": 50599
     }
   ],
   "contextSensitiveHelpUrl": "https://ExpenseInAPI.com/help/",

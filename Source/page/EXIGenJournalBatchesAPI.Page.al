@@ -1,7 +1,7 @@
 /// <summary>
 /// Page "EXI_GenJournalBatchesAPI" (ID 50304).
 /// </summary>
-page 50304 "EXI_GenJournalBatchesAPI"
+page 50504 "EXI_GenJournalBatchesAPI"
 {
     APIGroup = 'expenseIn';
     APIPublisher = 'rsmuk';

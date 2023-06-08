@@ -1,7 +1,7 @@
 /// <summary>
 /// Unknown "EXI_ExpenseInAPI" (ID 50300).
 /// </summary>
-permissionset 50300 EXI_ExpenseInAPI
+permissionset 50500 EXI_ExpenseInAPI
 {
     Assignable = true;
     Caption = 'Expense In API', MaxLength = 30;
