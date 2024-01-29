@@ -1,7 +1,7 @@
 /// <summary>
-/// Page "EXI_GeneralLedgerSetupAPI" (ID 50302).
+/// Page EXI General Ledger Setup API (ID 50502).
 /// </summary>
-page 50502 "EXI_GeneralLedgerSetupAPI"
+page 50502 EXIGeneralLedgerSetupAPI
 {
     APIGroup = 'expenseIn';
     APIPublisher = 'rsmuk';

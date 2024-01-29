@@ -1,7 +1,7 @@
 /// <summary>
-/// Table "EXI_Gen. Journal Line Buffer" (ID 50300).
+/// Table "EXI Gen. Journal Line Buffer" (ID 50500).
 /// </summary>
-table 50500 "EXI_GenJournalLineBuffer"
+table 50500 EXIGenJournalLineBuffer
 {
     Caption = 'Gen. Journal Line';
     ReplicateData = false;

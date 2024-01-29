@@ -2,7 +2,7 @@
 /// Codeunit "EXI_ExpenseInMgt". (ID 50301).
 /// Codeunit setup as web service in app? 
 /// </summary>
-codeunit 50501 "EXI_ExpenseInMgt"
+codeunit 50501 EXIExpenseMgmt
 {
     /// <summary>
     /// Calls local procedures GetBatch and PostBatch

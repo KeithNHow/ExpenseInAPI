@@ -7,14 +7,14 @@
     ],
 
     "[al]": {
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestSelection": "first",
         "editor.formatOnSave": true,
         "editor.codeLens": false,
         "editor.semanticHighlighting.enabled": true,
     },
 
-    "al.ruleSetPath": "./.vscode/ruleset.json",
+    //"al.ruleSetPath": "./.vscode/ruleset.json",
     "al.backgroundCodeAnalysis": true,
     "al.enableCodeActions": true,
     "al.packageCachePath": "./.alpackages",
@@ -24,15 +24,10 @@
         "generateReportLayout": true
     },
 
-    "CRS.ObjectNamePrefix": "EXI_",
+    "CRS.ObjectNamePrefix": "EXI",
     "CRS.DisableDefaultAlSnippets": false,
     "CRS.OnSaveAlFileAction": "Rename",
-    "CRS.FileNamePattern": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
-    "CRS.FileNamePatternExtensions": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
-    "CRS.FileNamePatternPageCustomizations": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
-
-    //"workbench.colorCustomizations": {
-    //"editorError.foreground": "#be0101", 
-    //"editorWarning.foreground": "#dceb06"
-    //},
+    "CRS.FileNamePattern": "<ObjectPrefix><ObjectName>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectPrefix><ObjectName>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectPrefix><ObjectName>.<ObjectTypeShortPascalCase>.al",
 }
