@@ -1,7 +1,7 @@
 /// <summary>
 /// Page EXI Purchase Journal API (ID 50500).
 /// </summary>
-page 50500 EXIPurchaseJournalAPI
+page 50500 "EXI Purchase Journal API"
 {
     SourceTable = EXIGenJournalLineBuffer;
     APIVersion = 'v2.0';
@@ -14,7 +14,7 @@ page 50500 EXIPurchaseJournalAPI
     ODataKeyFields = SystemId;
     PageType = API;
     APIGroup = 'expenseIn';
-    APIPublisher = 'rsmuk';
+    APIPublisher = 'expensesIn';
     SourceTableView = where("Journal Template Name" = filter('PURCHASES'));
     DeleteAllowed = true;
     ModifyAllowed = true;
@@ -222,13 +222,13 @@ page 50500 EXIPurchaseJournalAPI
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     var
-        GeneralLedgerSetup: Record "General Ledger Setup";
-        DimensionValue: Record "Dimension Value";
         DimensionSetEntry: Record "Dimension Set Entry";
         TempDimensionSetEntry: Record "Dimension Set Entry" temporary;
-        DimensionManagement: codeunit DimensionManagement;
-        i: Integer;
+        DimensionValue: Record "Dimension Value";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        DimensionManagement: Codeunit DimensionManagement;
         DimSetID: Integer;
+        i: Integer;
         DimValueCodeErr: Label 'Dimension Value Code %1 for Dimension Code %2 not found.', Comment = '%1 = DimValueCode, %2 = DimCode';
     begin
         if Rec."Shortcut Dimension 1 Code" <> '' then

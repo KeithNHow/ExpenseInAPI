@@ -1,8 +1,9 @@
 /// <summary>
 /// Codeunit "EXI_ExpenseInMgt". (ID 50301).
 /// Codeunit setup as web service in app? 
+/// 5 Procedures --> 2 Global --> Post, PreviewPost, 3 Local --> GetBatch, PostBatch, PreviewPostBatch
 /// </summary>
-codeunit 50501 EXIExpenseMgmt
+codeunit 50501 "EXI Expense Mgmt."
 {
     /// <summary>
     /// Calls local procedures GetBatch and PostBatch
@@ -28,6 +29,9 @@ codeunit 50501 EXIExpenseMgmt
         PreviewPostBatch(GenJournalBatch)
     end;
 
+    ///<summary>
+    /// Gives error if GenJnlBatch not found
+    ///</summary>
     local procedure GetBatch(var GenJournalBatch: Record "Gen. Journal Batch")
     var
         CannotFindBatchErr: Label 'The journal batch does not exist.';
@@ -37,15 +41,11 @@ codeunit 50501 EXIExpenseMgmt
     end;
 
     /// <summary>
-    /// Tries to Post GJL's on GJB and GJT 
+    /// Tries to post GenJnlLines on GenJnlBatch and GenJnlTemplate 
     /// </summary>
     local procedure PostBatch(var GenJournalBatch: Record "Gen. Journal Batch"; var WSActionContext: WebServiceActionContext)
     var
         GenJournalLine: Record "Gen. Journal Line";
-        //TempErrorMessage: Record "Error Message" temporary;
-        //ErrorArray: List of [ErrorInfo];
-        //Error: ErrorInfo;
-        //ArrayListInt: List of [Integer];
         ThereIsNothingToPostErr: Label 'There is nothing to post.';
     begin
         GenJournalLine.SetRange("Journal Template Name", GenJournalBatch."Journal Template Name");
@@ -59,30 +59,19 @@ codeunit 50501 EXIExpenseMgmt
             WSActionContext.SetResultCode(WebServiceActionResultCode::Created);
         end else
             Error(GetLastErrorText());
-        /*
-        foreach Error in GetCollectedErrors(true) do begin //test2
-            TempErrorMessage.ID := tempErrorMessage.ID + 1;
-            TempErrorMessage.Description := CopyStr(error.Message, 1, 250);
-            TempErrorMessage.Validate("Record ID", error.RecordId);
-            TempErrorMessage.Insert();
-        end;
-        */
-        //ErrorArray := GetCollectedErrors(); //test3
-        //ArrayListInt.AddRange(1, ErrorArray.Count);
-        //Error(Format(ArrayListInt));
     end;
 
     /// <summary>
-    /// Preview Posts GJL's on GJB and GJT 
+    /// Preview posts GenJnlLines on GenJnlBatch and GenJnlTemplate 
     /// </summary>
     local procedure PreviewPostBatch(var GenJournalBatch: Record "Gen. Journal Batch")
     var
         GenJournalLine: Record "Gen. Journal Line";
         GenJnlPost: Codeunit "Gen. Jnl.-Post";
     begin
-        GenJournalLine.SetRange("Journal Template Name", genJournalBatch."Journal Template Name");
+        GenJournalLine.SetRange("Journal Template Name", GenJournalBatch."Journal Template Name");
         GenJournalLine.SetRange("Journal Batch Name", GenJournalBatch.Name);
-        if genJournalLine.FindSet() then
+        if GenJournalLine.FindSet() then
             GenJnlPost.Preview(GenJournalLine);
     end;
 }

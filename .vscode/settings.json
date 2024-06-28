@@ -24,9 +24,23 @@
         "generateReportLayout": true
     },
 
+    "alOutline.codeCleanupActions": [
+        "AddToolTips",
+        "FixKeywordsCase",
+        "FixIdentifiersCase",
+        "SortVariables",
+        "AddApplicationAreas",
+        "SortTableFields",
+        "AddMissingParentheses",
+        "RemoveBeginEnd",
+        "RemoveUnusedVariables"
+    ],
+
+    "workbench.editor.enablePreview": true,
+
     "CRS.ObjectNamePrefix": "EXI",
     "CRS.DisableDefaultAlSnippets": false,
-    "CRS.OnSaveAlFileAction": "Rename",
+    //"CRS.OnSaveAlFileAction": "Rename",
     "CRS.FileNamePattern": "<ObjectPrefix><ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternExtensions": "<ObjectPrefix><ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectPrefix><ObjectName>.<ObjectTypeShortPascalCase>.al",

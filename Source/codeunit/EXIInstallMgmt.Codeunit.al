@@ -3,7 +3,7 @@
 /// Operations outside of the ext code that need to be run when ext is installed.
 /// Install code is run only when an ext version is first inst or reinst by running the Install-NAVApp cmdlet or from the Extension Management page in the client.
 /// </summary>
-codeunit 50500 EXIInstallMgmt
+codeunit 50500 "EXI Install Mgmt."
 {
     Subtype = Install;
 

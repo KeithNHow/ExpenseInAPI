@@ -232,7 +232,7 @@ table 50500 EXIGenJournalLineBuffer
         field(51; "Journal Batch Name"; Code[10])
         {
             Caption = 'Journal Batch Name';
-            TableRelation = "Gen. Journal Batch".Name where("Journal Template Name" = FIELD("Journal Template Name"));
+            TableRelation = "Gen. Journal Batch".Name where("Journal Template Name" = field("Journal Template Name"));
         }
         field(52; "Reason Code"; Code[10])
         {
@@ -322,7 +322,7 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(70; "Bank Payment Type"; Enum "Bank Payment Type")
         {
-            AccessByPermission = TableData "Bank Account" = R;
+            AccessByPermission = tabledata "Bank Account" = R;
             Caption = 'Bank Payment Type';
         }
         field(71; "VAT Base Amount"; Decimal)
@@ -347,7 +347,7 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(75; "Check Printed"; Boolean)
         {
-            AccessByPermission = TableData "Check Ledger Entry" = R;
+            AccessByPermission = tabledata "Check Ledger Entry" = R;
             Caption = 'Check Printed';
             Editable = false;
         }
@@ -444,7 +444,7 @@ table 50500 EXIGenJournalLineBuffer
             Caption = 'Additional-Currency Posting';
             Editable = false;
             OptionCaption = 'None,Amount Only,Additional-Currency Amount Only';
-            OptionMembers = "None","Amount Only","Additional-Currency Amount Only";
+            OptionMembers = None,"Amount Only","Additional-Currency Amount Only";
         }
         field(98; "FA Add.-Currency Factor"; Decimal)
         {
@@ -460,21 +460,21 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(100; "Source Currency Amount"; Decimal)
         {
-            AccessByPermission = TableData Currency = R;
+            AccessByPermission = tabledata Currency = R;
             AutoFormatType = 1;
             Caption = 'Source Currency Amount';
             Editable = false;
         }
         field(101; "Source Curr. VAT Base Amount"; Decimal)
         {
-            AccessByPermission = TableData Currency = R;
+            AccessByPermission = tabledata Currency = R;
             AutoFormatType = 1;
             Caption = 'Source Curr. VAT Base Amount';
             Editable = false;
         }
         field(102; "Source Curr. VAT Amount"; Decimal)
         {
-            AccessByPermission = TableData Currency = R;
+            AccessByPermission = tabledata Currency = R;
             AutoFormatType = 1;
             Caption = 'Source Curr. VAT Amount';
             Editable = false;
@@ -683,34 +683,34 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(1002; "Job Unit Price (LCY)"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatType = 2;
             Caption = 'Job Unit Price (LCY)';
             Editable = false;
         }
         field(1003; "Job Total Price (LCY)"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatType = 1;
             Caption = 'Job Total Price (LCY)';
             Editable = false;
         }
         field(1004; "Job Quantity"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             Caption = 'Job Quantity';
             DecimalPlaces = 0 : 5;
         }
         field(1005; "Job Unit Cost (LCY)"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatType = 2;
             Caption = 'Job Unit Cost (LCY)';
             Editable = false;
         }
         field(1006; "Job Line Discount %"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatType = 1;
             Caption = 'Job Line Discount %';
         }
@@ -728,19 +728,19 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(1009; "Job Line Type"; Enum "Job Line Type")
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             Caption = 'Job Line Type';
         }
         field(1010; "Job Unit Price"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 2;
             Caption = 'Job Unit Price';
         }
         field(1011; "Job Total Price"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
             Caption = 'Job Total Price';
@@ -748,7 +748,7 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(1012; "Job Unit Cost"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 2;
             Caption = 'Job Unit Cost';
@@ -756,7 +756,7 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(1013; "Job Total Cost"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
             Caption = 'Job Total Cost';
@@ -764,28 +764,28 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(1014; "Job Line Discount Amount"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
             Caption = 'Job Line Discount Amount';
         }
         field(1015; "Job Line Amount"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatExpression = "Job Currency Code";
             AutoFormatType = 1;
             Caption = 'Job Line Amount';
         }
         field(1016; "Job Total Cost (LCY)"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatType = 1;
             Caption = 'Job Total Cost (LCY)';
             Editable = false;
         }
         field(1017; "Job Line Amount (LCY)"; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             AutoFormatType = 1;
             Caption = 'Job Line Amount (LCY)';
             Editable = false;
@@ -800,13 +800,13 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(1020; "Job Planning Line No."; Integer)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             BlankZero = true;
             Caption = 'Job Planning Line No.';
         }
         field(1030; "Job Remaining Qty."; Decimal)
         {
-            AccessByPermission = TableData Job = R;
+            AccessByPermission = tabledata Job = R;
             Caption = 'Job Remaining Qty.';
             DecimalPlaces = 0 : 5;
         }
@@ -859,12 +859,12 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(5600; "FA Posting Date"; Date)
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             Caption = 'FA Posting Date';
         }
         field(5601; "FA Posting Type"; Enum "Gen. Journal Line FA Posting Type")
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             Caption = 'FA Posting Type';
         }
         field(5602; "Depreciation Book Code"; Code[10])
@@ -874,24 +874,24 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(5603; "Salvage Value"; Decimal)
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             AutoFormatType = 1;
             Caption = 'Salvage Value';
         }
         field(5604; "No. of Depreciation Days"; Integer)
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             BlankZero = true;
             Caption = 'No. of Depreciation Days';
         }
         field(5605; "Depr. until FA Posting Date"; Boolean)
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             Caption = 'Depr. until FA Posting Date';
         }
         field(5606; "Depr. Acquisition Cost"; Boolean)
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             Caption = 'Depr. Acquisition Cost';
         }
         field(5609; "Maintenance Code"; Code[10])
@@ -902,7 +902,7 @@ table 50500 EXIGenJournalLineBuffer
             trigger OnValidate()
             begin
                 if "Maintenance Code" <> '' then
-                    Testfield("FA Posting Type", "FA Posting Type"::Maintenance);
+                    TestField("FA Posting Type", "FA Posting Type"::Maintenance);
             end;
         }
         field(5610; "Insurance No."; Code[20])
@@ -913,7 +913,7 @@ table 50500 EXIGenJournalLineBuffer
             trigger OnValidate()
             begin
                 if "Insurance No." <> '' then
-                    Testfield("FA Posting Type", "FA Posting Type"::"Acquisition Cost");
+                    TestField("FA Posting Type", "FA Posting Type"::"Acquisition Cost");
             end;
         }
         field(5611; "Budgeted FA No."; Code[20])
@@ -928,12 +928,12 @@ table 50500 EXIGenJournalLineBuffer
         }
         field(5613; "Use Duplication List"; Boolean)
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             Caption = 'Use Duplication List';
         }
         field(5614; "FA Reclassification Entry"; Boolean)
         {
-            AccessByPermission = TableData "Fixed Asset" = R;
+            AccessByPermission = tabledata "Fixed Asset" = R;
             Caption = 'FA Reclassification Entry';
         }
         field(5615; "FA Error Entry No."; Integer)
@@ -1033,9 +1033,9 @@ table 50500 EXIGenJournalLineBuffer
         if Rec."Line No." = GenJournalLine."Line No." then
             Modify(true)
         else begin
-            GenJournalLine.Transferfields(Rec, false);
+            GenJournalLine.TransferFields(Rec, false);
             GenJournalLine.Rename("Journal Template Name", "Journal Batch Name", "Line No.");
-            Transferfields(GenJournalLine, true);
+            TransferFields(GenJournalLine, true);
         end;
     end;
 
@@ -1099,7 +1099,7 @@ table 50500 EXIGenJournalLineBuffer
         if Rec."VAT Amount" <> 0 then
             GenJournalLine.Validate("VAT Amount", Rec."VAT Amount");
         if GenJournalLine.Insert(true) then begin
-            Rec.Transferfields(GenJournalLine, true);
+            Rec.TransferFields(GenJournalLine, true);
             Rec.SystemId := GenJournalLine.SystemId;
         end;
     end;

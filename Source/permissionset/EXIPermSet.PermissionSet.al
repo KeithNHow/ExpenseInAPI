@@ -5,16 +5,15 @@ permissionset 50500 EXIPermSet
 {
     Assignable = true;
     Caption = 'Expense In API', MaxLength = 30;
-    Permissions =
-        table EXIGenJournalLineBuffer = X,
+    Permissions = table EXIGenJournalLineBuffer = X,
         tabledata EXIGenJournalLineBuffer = RMID,
-        codeunit EXIInstallMgmt = X,
-        codeunit EXIExpenseMgmt = X,
-        page EXIPurchaseJournalAPI = X,
-        page EXIVATBusinessPostingGroupAPI = X,
-        page EXIGeneralLedgerSetupAPI = X,
-        page EXIGenProductPostingGroupAPI = X,
-        page EXIGenJournalBatchesAPI = X,
-        page EXIGenBusPostingGroupAPI = X,
-        page EXIVATProductPostingGroupsAPI = X;
+        codeunit "EXI Install Mgmt." = X,
+        codeunit "EXI Expense Mgmt." = X,
+        page "EXI Purchase Journal API" = X,
+        page "EXI VAT Bus Post Group API" = X,
+        page "EXI Gen Bus Post Group API" = X,
+        page "EXI VAT Prod Post Group API" = X,
+        page "EXI Gen Journal Batch API" = X,
+        page "EXI Gen Ledger Setup API" = X,
+        page "EXI Gen Prod Post Group API" = X;
 }
