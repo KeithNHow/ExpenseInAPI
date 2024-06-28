@@ -35,6 +35,28 @@
         "RemoveBeginEnd",
         "RemoveUnusedVariables"
     ],
+    "alOutline.defaultApiPublisher": "expensesIn",
+    "alOutline.defaultApiGroup": "expenseIn",
+    "alOutline.defaultApiVersion": "v2.0",
+    "alOutline.createApiFieldsCaptions": true,
+    "alOutline.apiFieldNamesConversion": [
+        {
+            "searchRegExp": "^lineNo$",
+            "newValue": "sequence"
+        },
+        {
+            "searchRegExp": "^no$",
+            "newValue": "number"
+        },
+        {
+            "searchRegExp": "^systemId$",
+            "newValue": "id"
+        },
+        {
+            "searchRegExp": "^systemModifiedAt$",
+            "newValue": "lastModifiedDateTime"
+        }
+    ],
 
     "workbench.editor.enablePreview": true,
 
